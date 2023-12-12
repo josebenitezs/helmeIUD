@@ -8,6 +8,7 @@ import lombok.experimental.FieldDefaults;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
@@ -20,17 +21,17 @@ public class Usuario implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    @Column(name = "username",
-            nullable = false, unique = true, length = 120)
+    @Column(
+            name = "username",
+            nullable = false, unique = true, length = 120
+    )
     String username;
 
     @Column(name = "nombre", nullable = false, length = 120)
     String nombre;
 
-
     @Column(name = "apellido", length = 120)
     String apellido;
-
 
     @Column
     String password;
@@ -46,5 +47,17 @@ public class Usuario implements Serializable {
 
     @Column(name = "red_social")
     Boolean redSocial;
+
+    @ManyToMany
+    @JoinTable(
+            name = "roles_usuarios",
+            joinColumns = {
+                    @JoinColumn(name = "usuarios_id")
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "roles_id")
+            }
+    )
+    List<Role> roles;
 
 }

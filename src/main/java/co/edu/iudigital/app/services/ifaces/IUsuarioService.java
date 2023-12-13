@@ -1,18 +1,24 @@
 package co.edu.iudigital.app.services.ifaces;
 
 import co.edu.iudigital.app.dtos.UsuarioDTO;
-import co.edu.iudigital.app.models.Usuario;
+import co.edu.iudigital.app.dtos.UsuarioDTORequest;
 
 import java.util.List;
 
 public interface IUsuarioService {
-    public List<UsuarioDTO> listUsers();
 
-    public Usuario listUser(Long id);
 
-    public Usuario saveUser(Usuario usuario);
 
-    public Usuario listByUsername(String username);
+        List<UsuarioDTO> getAll();;
 
-    public Usuario updateUser(Usuario usuario);
+        UsuarioDTO consultarPorId(Long id);
+
+
+        UsuarioDTO save(UsuarioDTORequest request);
+
+        UsuarioDTO getById(Long id);
+        void deleteById(Long id);
+
+
 }
+

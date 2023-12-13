@@ -14,4 +14,6 @@ public interface IDelitoService {
     DelitoDTO getById(Long id);
     void deleteById(Long id);
 
+
+
 }

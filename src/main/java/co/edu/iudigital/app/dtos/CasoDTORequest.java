@@ -1,54 +1,53 @@
-package co.edu.iudigital.app.models;
+package co.edu.iudigital.app.dtos;
 
+import co.edu.iudigital.app.models.Delito;
+import co.edu.iudigital.app.models.Usuario;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@Entity
-@Table(name = "casos")
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Caso implements Serializable {
+@Builder
+public class CasoDTORequest {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
 
-    @Column(name = "fecha_hora")
+
+
     LocalDateTime fechaHora;
 
-    @Column(name = "latitud")
+
     Float latitud;
 
-    @Column(name = "longitud")
+
     Float longitud;
 
-    @Column(name = "altitud")
+
     Float altitud;
 
-    @Column(name = "is_visible")
+
     Boolean isVisible;
 
-    @Column(name = "detalle")
+
     String detalle;
 
-    @Column(name = "url_map")
+
     String urlMap;
 
-    @Column(name = "rmi_url")
+
     String rmiUrl;
 
-    @ManyToOne
+
     @JoinColumn(name = "delitos_id")
     Delito delito;
 
-    @ManyToOne
+
     @JoinColumn(name = "usuarios_id")
     Usuario usuario;
 }

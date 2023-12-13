@@ -1,9 +1,6 @@
 package co.edu.iudigital.app.dtos;
 
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDateTime;
@@ -11,7 +8,9 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Builder
+@Builder // patrón
+@AllArgsConstructor
+@NoArgsConstructor
 public class CasoDTO {
 
     Long id;

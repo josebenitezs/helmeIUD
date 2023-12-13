@@ -1,13 +1,11 @@
 package co.edu.iudigital.app.repositories;
 
 import co.edu.iudigital.app.models.Usuario;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository // esto es ambigüo porque extienda a un Bean
+@Repository
 public interface IUsuarioRepository
-        extends CrudRepository<Usuario, Long> {
-    // select * from usuarios where username='dasdasdad';
-    //@Query("SELECT u FROM Usuario u WHERE u.username=?1")
-    Usuario findByUsername(String username);// usando Spring Data JPA
+        extends JpaRepository<Usuario, Long> {
+    Usuario findByUsername(String username);
 }
